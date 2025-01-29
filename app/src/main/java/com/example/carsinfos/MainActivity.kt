@@ -16,6 +16,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.carsinfos.data.remote.dto.CarDto
 import com.example.carsinfos.data.repository.CarRepositoryImpl
 import com.example.carsinfos.domain.model.Car
+import com.example.carsinfos.presentation.car_detail.CarDetailScreen
 import com.example.carsinfos.presentation.car_detail.CarDetailViewModel
 import com.example.carsinfos.presentation.car_list.CarListViewModel
 import com.example.carsinfos.presentation.car_list.CarListingsScreen
@@ -32,14 +33,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CarsInfosTheme {
-                    lateinit var repository : CarRepositoryImpl
                     //val viewModel : CarListViewModel = viewModel()
-                    val scope = CoroutineScope(Dispatchers.Main)
-                    var cars : List<CarDto> = emptyList()
-                    scope.launch {
-                        cars = repository.getCars()
-                    }
-                    CarListingsScreen(cars = cars)
+
+                    CarDetailScreen()
                 }
             }
         }
