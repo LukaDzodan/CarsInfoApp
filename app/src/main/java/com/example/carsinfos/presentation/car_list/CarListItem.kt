@@ -29,25 +29,25 @@ import com.example.carsinfos.ui.theme.PurpleGrey80
 //@Preview(showBackground = true)
 @Composable
 fun CarListItem(
-//    car : Car,
-//    onItemClick : (Car) -> Unit
+    car : Car,
+    onItemClick : (Car) -> Unit
 ) {
     Column( modifier = Modifier
         .fillMaxSize()
-//        .clickable {
-//            onItemClick(car)
-//        }
+        .clickable {
+            onItemClick(car)
+        }
         .padding(20.dp)
         .background(CarItemBackGround)
     ){
         Row() {
-            Text(text = /*car.make+" "+car.model*/ "Toyota Corolla",
+            Text(text = car.make+" "+car.model,
                 style = MaterialTheme.typography.bodyLarge
             )
 
             Spacer(modifier = Modifier.width(150.dp))
 
-            Text(text = /*car.price.toString()*/ "5000e",
+            Text(text = car.price.toString(),
                 style = MaterialTheme.typography.bodyLarge,
                 overflow = TextOverflow.Ellipsis
             )
@@ -64,7 +64,7 @@ fun CarListItem(
                     Modifier.align(Alignment.Center)
                 ) {
                     Text(text = "Year:", style = MaterialTheme.typography.bodyMedium)
-                    Text(text = /*car.year.toString()*/"2011", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = car.year.toString(), style = MaterialTheme.typography.bodyMedium)
                 }
             }
             Box(
@@ -76,7 +76,7 @@ fun CarListItem(
                     Modifier.align(Alignment.Center)
                 ) {
                     Text(text = "Engine:", style = MaterialTheme.typography.bodyMedium)
-                    Text(text = /*car.engine*/"1998", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = car.engine, style = MaterialTheme.typography.bodyMedium)
                 }
             }
             Box(
@@ -88,7 +88,7 @@ fun CarListItem(
                     Modifier.align(Alignment.Center)
                 ) {
                     Text(text = "Horse Power:", style = MaterialTheme.typography.bodyMedium)
-                    Text(text = /*car.horsepower.toString()*/ "134", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = car.horsepower.toString(), style = MaterialTheme.typography.bodyMedium)
                 }
             }
             Box(
@@ -100,7 +100,7 @@ fun CarListItem(
                     Modifier.align(Alignment.Center)
                 ) {
                     Text(text = "Fuel Engine:", style = MaterialTheme.typography.bodyMedium)
-                    Text(text = /*car.fuelType*/ "Benzine", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = car.fuelType, style = MaterialTheme.typography.bodyMedium)
                 }
             }
         }

@@ -8,10 +8,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.carsinfos.common.Constants
 import com.example.carsinfos.common.Resource
 import com.example.carsinfos.domain.use_case.get_car.GetCarDetailUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+@HiltViewModel
 class CarDetailViewModel @Inject constructor(
     private val getCarDetailUseCase: GetCarDetailUseCase,
     savedStateHandle : SavedStateHandle

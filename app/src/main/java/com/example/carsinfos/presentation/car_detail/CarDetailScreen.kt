@@ -24,101 +24,101 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.carsinfos.domain.model.CarDetail
 import com.example.carsinfos.ui.theme.CarItemBackGround
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun CarDetailScreen(
-    //viewModel: CarDetailViewModel = hiltViewModel()
+    viewModel: CarDetailViewModel = hiltViewModel()
 ) {
-    //val state = viewModel.state.value
+    val state = viewModel.state.value
 
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.DarkGray)){
 
-//        state.car?.let { car ->
-//            Text(text = "Totoya Corolla")
-//        }
-        Column(modifier = Modifier.fillMaxSize() ) {
-            Row(horizontalArrangement = Arrangement.Center, modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.DarkGray)) {
-                Text(text = "Totoya Corolla", modifier = Modifier
-                    .padding(20.dp)
-                    .align(Alignment.CenterVertically),
-                    style = MaterialTheme.typography.headlineLarge,
-                )
-            }
-            Row(
-                Modifier
-                    .background(CarItemBackGround)
-                    .fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                Text(text = "5000e", style = MaterialTheme.typography.headlineSmall)
-            }
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
-                Text(text = "Year:",
-                    style = MaterialTheme.typography.headlineSmall,
-                )
-                Text(text = "2011", style = MaterialTheme.typography.headlineSmall)
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
-                Text(text = "Engine:",
-                    style = MaterialTheme.typography.headlineSmall
-                )
-                Text(text = "1996", style = MaterialTheme.typography.headlineSmall)
-            }
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
-                Text(text = "Horse Power:",
-                    style = MaterialTheme.typography.headlineSmall
-                )
-                Text(text = "130", style = MaterialTheme.typography.headlineSmall)
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
-                Text(text = "Fuel Type:",
-                    style = MaterialTheme.typography.headlineSmall
-                )
-                Text(text = "Benzine", style = MaterialTheme.typography.headlineSmall)
-            }
-            Spacer(modifier = Modifier.height(16.dp))
-
-
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                Text(text = "Additional Information",
-                    style = MaterialTheme.typography.headlineMedium
+        state.car?.let { car ->
+            Column(modifier = Modifier.fillMaxSize() ) {
+                Row(horizontalArrangement = Arrangement.Center, modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color.DarkGray)) {
+                    Text(text = car.make+" "+car.model, modifier = Modifier
+                        .padding(20.dp)
+                        .align(Alignment.CenterVertically),
+                        style = MaterialTheme.typography.headlineLarge,
                     )
+                }
+                Row(
+                    Modifier
+                        .background(CarItemBackGround)
+                        .fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                    Text(text = car.price.toString(), style = MaterialTheme.typography.headlineSmall)
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
+                    Text(text = "Year:",
+                        style = MaterialTheme.typography.headlineSmall,
+                    )
+                    Text(text = car.year.toString(), style = MaterialTheme.typography.headlineSmall)
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
+                    Text(text = "Engine:",
+                        style = MaterialTheme.typography.headlineSmall
+                    )
+                    Text(text = car.engine, style = MaterialTheme.typography.headlineSmall)
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
+                    Text(text = "Horse Power:",
+                        style = MaterialTheme.typography.headlineSmall
+                    )
+                    Text(text = car.horsepower.toString(), style = MaterialTheme.typography.headlineSmall)
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
+                    Text(text = "Fuel Type:",
+                        style = MaterialTheme.typography.headlineSmall
+                    )
+                    Text(text = car.fuelType, style = MaterialTheme.typography.headlineSmall)
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+
+
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                    Text(text = "Additional Information",
+                        style = MaterialTheme.typography.headlineMedium
+                    )
+                }
+
+                HorizontalDivider(color = CarItemBackGround, thickness = 2.dp)
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
+                    Text(text = "Transmission:",
+                        style = MaterialTheme.typography.headlineSmall
+                    )
+                    Text(text = car.transmission, style = MaterialTheme.typography.headlineSmall)
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
+                    Text(text = "Mileage:",
+                        style = MaterialTheme.typography.headlineSmall
+                    )
+                    Text(text = car.mileage.toString(), style = MaterialTheme.typography.headlineSmall)
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
             }
-
-            HorizontalDivider(color = CarItemBackGround, thickness = 2.dp)
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
-                Text(text = "Transmission:",
-                    style = MaterialTheme.typography.headlineSmall
-                )
-                Text(text = "Front", style = MaterialTheme.typography.headlineSmall)
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
-                Text(text = "Mileage:",
-                    style = MaterialTheme.typography.headlineSmall
-                )
-                Text(text = "110126", style = MaterialTheme.typography.headlineSmall)
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
         }
+
     }
 }
 
