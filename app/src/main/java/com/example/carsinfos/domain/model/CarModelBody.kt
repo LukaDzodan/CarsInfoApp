@@ -1,0 +1,32 @@
+package com.example.carsinfos.domain.model
+
+data class CarModelBody(
+    val cargo_capacity: String? = null,
+    val curb_weight: Int? = null,
+    val doors: Int? = null,
+    val front_track: Any? = null,
+    val gross_weight: Any? = null,
+    val ground_clearance: String? = null,
+    val height: String? = null,
+    val id: Int? = null,
+    val length: String? = null,
+    val make: String? = null,
+    val make_id: Int? = null,
+    val max_cargo_capacity: Any? = null,
+    val max_payload: Any? = null,
+    val max_towing_capacity: Any? = null,
+    val model: String? = null,
+    val model_id: Int? = null,
+    val rear_track: Any? = null,
+    val seats: Int? = null,
+    val series: Any? = null,
+    val submodel: String? = null,
+    val submodel_id: Int? = null,
+    val trim: String? = null,
+    val trim_description: String? = null,
+    val trim_id: Int? = null,
+    val type: String? = null,
+    val wheel_base: String? = null,
+    val width: String? = null,
+    val year: Int? = null
+)

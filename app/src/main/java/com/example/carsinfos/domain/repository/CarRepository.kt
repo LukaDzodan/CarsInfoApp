@@ -1,12 +1,18 @@
 package com.example.carsinfos.domain.repository
 
-import com.example.carsinfos.data.remote.dto.CarDetailDto
-import com.example.carsinfos.data.remote.dto.CarDto
-import com.example.carsinfos.domain.model.Car
-import com.example.carsinfos.domain.model.CarDetail
+import com.example.carsinfos.common.Resource
+import com.example.carsinfos.domain.model.CarMake
+import com.example.carsinfos.domain.model.CarModelBody
+import com.example.carsinfos.domain.model.CarModelEngine
+import com.example.carsinfos.domain.model.CarModel
 
 interface CarRepository {
-    suspend fun getCars() : List<CarDto>
 
-    suspend fun getCarById(carId : String) : CarDetailDto
+    suspend fun getCarsByMakes() : Resource<List<CarMake>>
+
+    suspend fun getModelsByMake(make : String) :  Resource<List<CarModel>>
+
+    suspend fun getModelEngines(model : String) : Resource<List<CarModelEngine>>
+
+    suspend fun getModelBodies(model : String) : Resource<List<CarModelBody>>
 }

@@ -19,7 +19,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCarReporistory( api : CarApi) : CarRepository {
+    fun provideCarRepository( api : CarApi) : CarRepository {
         return CarRepositoryImpl(api)
     }
 
